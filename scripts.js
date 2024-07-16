@@ -38,6 +38,19 @@ document.addEventListener('DOMContentLoaded', () => {
   let firstCard, secondCard;
   let lockBoard = false;
 
+    // Function to check orientation
+    const checkOrientation = () => {
+      if (window.innerHeight > window.innerWidth) {
+        rotateScreen.style.display = 'flex';
+      } else {
+        rotateScreen.style.display = 'none';
+      }
+    };
+  
+    // Add event listener for orientation change
+    window.addEventListener('resize', checkOrientation);
+    checkOrientation(); // Initial check
+
   startButton.addEventListener('click', startGame);
 
   function startGame() {
