@@ -38,7 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
   let firstCard, secondCard;
   let lockBoard = false;
 
-    // Function to check orientation
     const checkOrientation = () => {
       if (window.innerHeight > window.innerWidth) {
         rotateScreen.style.display = 'flex';
@@ -47,9 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
   
-    // Add event listener for orientation change
     window.addEventListener('resize', checkOrientation);
-    checkOrientation(); // Initial check
+    checkOrientation();
 
   startButton.addEventListener('click', startGame);
 
