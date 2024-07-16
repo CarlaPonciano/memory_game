@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reino Encantado da Aline</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <audio id="backgroundMusic" loop>
+    <source src="assets/background_audio.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="start-screen">
+    <img src="./assets/reino_encantado.gif" alt="Reino Encantado da Aline" id="gameTitle" class="game-title">
+    <button id="startButton" class="start-button">Começar</button>
+  </div>
+  
+  <div class="game-container" id="gameContainer" style="display: none;">
+    <div class="game-board" id="gameBoard"></div>
+  </div>
+  <div id="audioControls">
+    <i id="audioControlButton" style="display: none;" class="material-icons audio-button">pause_circle_filled</i>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <img id="modalImage" src="" alt="Modal Image">
+    <div class="modal-content">
+          <p id="modalText"></p>
+          <button id="continueButton" class="modal-button">Continuar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: white;
+  font-family: 'Poppins';
+}
+
+.game-title {
+  max-width: 55%;
+  margin-bottom: 10px;
+}
+
+.start-screen {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.start-button, .modal-button {
+  font-weight: bold;
+  font-family: 'Poppins';
+  padding: 10px 20px;
+  font-size: 18px;
+  border: 2px solid #9c29ba; /* Border same color as background */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+  background-color: white; /* White background on hover */
+  color: #9c29ba; /* Green text on hover */
+  width: 230px;
+}
+
+.start-button:hover, .modal-button {
+  background-color: #9c29ba; /* Green background */
+  color: white; /* White text */
+}
+
+.start-button:active, .modal-button {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Reset shadow on active */
+  transform: translateY(2px); /* Slight movement on active */
+}
+
+.game-container {
+  position: relative; /* Ensure it's relative to position children */
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.game-board {
+  display: flex;
+  flex-wrap: wrap;
+  grid-gap: 5px;
+  justify-content: center;
+  margin-top: 10px;
+  position: relative; /* Ensure relative positioning */
+  width: 550px;
+}
+
+.audio-button {
+  position: absolute;
+  top: 10px; /* Adjust to desired distance from top */
+  right: 10px; /* Adjust to desired distance from right */
+  font-size: 24px; /* Adjust size as needed */
+  color: #333; /* Adjust color as needed */
+  cursor: pointer;
+}
+
+.card {
+  background-color: #9c29ba;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  color: white;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.card .front,
+.card .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.card .front {
+  background-color: #9c29ba;
+  box-shadow: 2px 2px 2px #a2a2a2;
+  background: linear-gradient(70deg, #E856BA, #E8A3D2 100%);
+}
+
+.card .back {
+  background-size: cover;
+  background-position: center;
+  transform: rotateY(180deg);
+}
+
+.card .back img {
+  width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the image covers the entire space */
+            border-radius: 10px;
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 20px 10px rgba(0, 0, 0, 0.5);
+  max-width: 520px;
+  max-height: 80vh; /* Ensure it doesn't take up the full viewport height */
+  width: 100%;
+  margin: 20px; /* Adds space around the modal */
+  overflow: hidden;
+}
+
+.modal-container {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.modal-content {
+  /* background-color: #fefefe;
+  margin: 2% auto; 
+  padding: 10px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around; */
+  padding: 20px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow-y: auto; /* Adds scroll if content overflows */
+}
+
+.modal-content img {
+  /* max-width: 100%;
+  max-height: 200px;
+  margin-bottom: 10px; */
+  width: 50%;
+  object-fit: cover;
+}
+
+.modal-content p {
+  margin: 10px 0;
+  font-size: 1em;
+}
+
+.modal-content .modal-button {
+  margin-top: 10px;
+}
+
+/* Responsive layout for larger screens */
+@media (min-width: 600px) {
+  .modal-content {
+    flex-direction: column; /* Side by side for larger screens */
+    align-items: center;
+    text-align: left;
+  }
+
+  .modal-content img {
+    max-width: 40%;
+    max-height: 100%; /* Adjust as needed */
+    margin-bottom: 0;
+    margin-right: 20px; /* Space between image and text */
+  }
+
+  .modal-content p {
+    flex: 1; /* Allow text to take remaining space */
+  }
+}
+
+.card {
+  width: 85px;
+  height: 85px;
+}
+
+/* Responsive layout */
+@media (min-width: 600px) {
+  /* .game-board {
+    grid-template-columns: repeat(7, 100px);
+  } */
+}
+
+@media (max-width: 599px) {
+  /* .game-board {
+    grid-template-columns: repeat(8, 50px); 
+  } */
+
+  .card {
+    width: 50px;
+    height: 50px;
+    font-size: 0.8em; /* Adjust font size for smaller cards */
+  }
+}
+
+@media (max-width: 399px) {
+  .game-board {
+    grid-template-columns: repeat(6, 40px); /* For very small screens */
+  }
+
+  .card {
+    width: 40px;
+    height: 40px;
+    font-size: 0.6em; /* Adjust font size for very small cards */
+  }
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 35px;  /* Adjust size as needed */
+  color: #9c29bab5;  /* Adjust color as needed */
+  cursor: pointer;
+}
