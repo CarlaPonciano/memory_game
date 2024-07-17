@@ -53,11 +53,17 @@ document.addEventListener('DOMContentLoaded', () => {
       rotateScreen.style.display = 'none';
     }
   };
+
+  window.addEventListener('resize', checkOrientation);
+  checkOrientation();
   
   window.addEventListener('resize', checkOrientation);
   checkOrientation();
 
-  startButton.addEventListener('click', startGame);
+  startButton.addEventListener('click', () => {
+    startGame();
+    enterFullscreen();
+  });
 
   function startGame() {
     gameBoard.innerHTML = '';
@@ -196,4 +202,18 @@ document.addEventListener('DOMContentLoaded', () => {
       confetti.style.animationDelay = `${Math.random() * 3}s`;
     }
   }
+
+  function enterFullscreen() {
+    if (document.documentElement.requestFullscreen) {
+      document.documentElement.requestFullscreen();
+    } else if (document.documentElement.mozRequestFullScreen) { /* Firefox */
+      document.documentElement.mozRequestFullScreen();
+    } else if (document.documentElement.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+      document.documentElement.webkitRequestFullscreen();
+    } else if (document.documentElement.msRequestFullscreen) { /* IE/Edge */
+      document.documentElement.msRequestFullscreen();
+    }
+  }
+
 });
+

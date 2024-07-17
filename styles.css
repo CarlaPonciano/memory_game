@@ -195,6 +195,10 @@ body {
   .modal-content p {
     flex: 1;
   }
+
+  .modal {
+    max-height: 35vh;
+  }
 }
 
 .card {
